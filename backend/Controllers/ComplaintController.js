@@ -2,6 +2,8 @@ import { AadharModel } from "../Models/Aadhar.js";
 import { ComplaintModel } from "../Models/Complaint.js";
 import query from 'india-pincode-search'
 import { StateModel } from "../Models/StateModel.js";
+import { spawn } from 'child_process';
+
 
 
 const capitalizeWords = ( str ) => {
@@ -19,8 +21,21 @@ const capitalizeWords = ( str ) => {
 
 const postComplaint = async ( req, res ) => {
     const { name, pincode, officeAddress, officeName, date, briefDescription, fullDescription } = req.body;
-    console.log( req.cookies );
-
+    const str = pincode +" "+ officeAddress +" "+ date;
+    console.log(str);
+    const args = spawn( 'python', [ '../backend/Controllers/implimentation.py', str ] );
+    // Handle Python script output
+    args.stdout.on( 'data', ( data ) => {
+        console.log( `stdout: ${ data }` );
+    } );
+    
+    args.stderr.on( 'data', ( data ) => {
+        console.error( `stderr: ${ data }` );
+    } );
+    
+    args.on( 'close', async ( code ) => {
+        console.log( `child process exited with code ${ code }` );
+    })
     if ( req.cookies.uid ) {
         try {
             const user = await AadharModel.findById( req.cookies.uid );

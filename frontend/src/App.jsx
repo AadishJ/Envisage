@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
-import HeatMap from './components/HeatMap';
+import HeatMap from './Pages/HeatMap';
 import Aadhar from './Pages/Aadhar';
 import {ToastContainer} from 'react-toastify';
 import Complaint from './Pages/Complaint';
