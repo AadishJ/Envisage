@@ -2,6 +2,7 @@ import { AadharModel } from "../Models/Aadhar.js";
 import { ComplaintModel } from "../Models/Complaint.js";
 import query from 'india-pincode-search'
 import { StateModel } from "../Models/StateModel.js";
+import { spawn } from 'child_process';
 
 
 const capitalizeWords = ( str ) => {
@@ -20,6 +21,12 @@ const capitalizeWords = ( str ) => {
 const postComplaint = async ( req, res ) => {
     const { name, pincode, officeAddress, officeName, date, briefDescription, fullDescription } = req.body;
     console.log( req.cookies );
+    const str = pincode + officeAddress + date;
+
+    const args = spawn('implimentation.py' , 'str');
+
+    const pythonProcess = spawn('python', args);
+
 
     if ( req.cookies.uid ) {
         try {
