@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaHandFist } from "react-icons/fa6";
 import { FaHandMiddleFinger } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
-import HeatMap from '../components/HeatMap';
+import HeatMap from '../Components/HeatMap';
 
 
 
