@@ -4,7 +4,7 @@ import Home from './Pages/Home';
 import HeatMap from './Pages/HeatMap';
 import Aadhar from './Pages/Aadhar';
 import {ToastContainer} from 'react-toastify';
-import Complaint from './Pages/Complaint';
+import Complaint from './Components/Complaint';
 import Navbar from './Components/Navbar';
 import FAQ from './Pages/FAQ';
 import About from './Pages/About';
