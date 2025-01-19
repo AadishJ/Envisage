@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
-import HeatMap from './Pages/HeatMap';
+import HeatMap from './components/HeatMap';
 import Aadhar from './Pages/Aadhar';
 import {ToastContainer} from 'react-toastify';
-import Complaint from './Components/Complaint';
+import Complaint from './Pages/Complaint';
 import Navbar from './Components/Navbar';
 import FAQ from './Pages/FAQ';
 import About from './Pages/About';
